@@ -1,2 +1,12 @@
-node_modules
-.env
+/*
+
+!public
+!public/.gitkeep
+!views
+!index.js
+
+!package.json
+!rollup.config.js
+!babel.config.js
+
+!vercel.json
