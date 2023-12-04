@@ -8,7 +8,7 @@ const clientPromise = MongoClient.connect(process.env.DB_URI, {
 router.use(async (req, res, next) => {
   try {
     const client = await clientPromise;
-    req.db = client.db("timers");
+    req.db = client.db("notes");
     next();
   } catch (err) {
     next(err);

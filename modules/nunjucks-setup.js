@@ -1,17 +1,11 @@
 const nunjucks = require("nunjucks");
+const path = require("path");
 
-function setupNunjucks(path, app) {
-  nunjucks.configure(path + "/views", {
+
+function setupNunjucks(dir, app) {
+  nunjucks.configure(path.join(dir + "/views"), {
     autoescape: true,
     express: app,
-    tags: {
-      blockStart: "[%",
-      blockEnd: "%]",
-      variableStart: "[[",
-      variableEnd: "]]",
-      commentStart: "[#",
-      commentEnd: "#]",
-    },
   });
 
   app.set("view engine", "njk");

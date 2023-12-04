@@ -14,8 +14,11 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.17.1",
+    "mongodb": "^6.3.0",
+    "nanoid": "^3.1.10",
     "nunjucks": "^3.2.2"
   },
   "devDependencies": {

@@ -46,35 +46,26 @@ const auth = () => async (req, res, next) => {
 };
 
 const isAuth =
-  (isRedirect = false) =>
-  async (req, res, next) => {
-    if (!req.user && isRedirect) {
-      return res.redirect();
-    }
+  (redirect) =>
+    async (req, res, next) => {
+      if (typeof redirect === "string") {
+        if (!req.user) {
+          return res.redirect(redirect);
+        }
+      }
 
-    if (!req.user) {
-      return res.sendStatus(401);
-    }
-    next();
-  };
-const authWs = () => async (ws, req, next) => {
-  if (!req.cookies[cookieName]) {
-    return next();
-  }
-
-  const user = await findUserBySessionId(req.db, req.cookies[cookieName]);
-  req.user = user;
-  req.sessionId = req.cookies[cookieName];
-  next();
-};
+      if (!req.user) {
+        return res.sendStatus(401);
+      }
+      next();
+    };
 
 module.exports = {
   auth,
+  isAuth,
   deleteSession,
   createSession,
   createUser,
   hashString,
   findUserByUsername,
-  isAuth,
-  authWs,
 };
