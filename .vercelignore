@@ -1,8 +1,1 @@
-node_modules
-.editorconfig
-.env
-.env.sample
-.eslintignore
-.eslintrc.json
-.gitignore
-.prettierrc.json
+/*
