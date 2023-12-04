@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const nunjucks = require("nunjucks");
+const path = require("path");
 
 const app = express();
 
@@ -11,6 +12,8 @@ nunjucks.configure("views", {
 app.set("view engine", "njk");
 
 app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
