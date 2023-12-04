@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build:front": "rimraf public/bundle.* && rollup --config",
+    "build": "rimraf public/bundle.* && rollup --config",
     "dev": "nodemon index.js --watch"
   },
   "engines": {
