@@ -1,5 +1,9 @@
 /*
 
 !public
+!public/.gitkeep
 !views
 !index.js
+
+package.json
+vercel.json
